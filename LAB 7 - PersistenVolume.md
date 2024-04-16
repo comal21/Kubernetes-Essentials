@@ -11,11 +11,6 @@ kubectl label nodes <worker-node-name> role=node
 ```
 kubectl get nodes --show-labels | grep role=node
 ```
-## label worker node 
-```
-kubectl label nodes <worker-node-name> role=node
-```
-## Make a note of the kubernetes.io/hostname label of one of the nodes
 
 ## SSH to one of the nodes
 ```
@@ -122,7 +117,7 @@ spec:
           - mountPath: "/usr/share/nginx/html"
             name: pv-storage
   nodeSelector:
-    kubernetes.io/hostname: <write-node-name>
+    role: node
 ```
 ## Save and exit the editor
 ## Apply the pv-pod.yaml created in the previous step
